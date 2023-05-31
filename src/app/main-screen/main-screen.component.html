@@ -1,0 +1,59 @@
+<div class="header">
+    <p>Github Users</p>
+</div>
+
+<div class="filters">
+    <div class="filt">
+        <label>Filter ID: </label>
+        <input type="number" [(ngModel)]="filterId" placeholder="ID">
+    </div>
+    <div class="filt">
+        <label>Filter Login: </label>
+        <input type="text" [(ngModel)]="filterLogin" placeholder="Name">
+    </div>
+
+    <div class="filt">
+        <label>Filter Type: </label>
+        <input type="text" [(ngModel)]="filterType" placeholder="Type">
+    </div>
+
+    <div class="div-button">
+        <button class="button-filter" (click)="filterTable()">Filter</button>
+    </div>
+</div>
+
+
+<table *ngIf="users | async as users">
+  <tr>
+    <th>ID</th>
+    <th>Username</th>
+    <th>Avatar</th>
+    <th>Profile</th>
+    <th>Repos</th>
+    <th>Type</th>
+  </tr>
+  <tr *ngFor="let user of users">
+    <td>
+        {{ user.id }}
+    </td>
+    <td>
+        {{ user.login }}
+    </td>
+    <td>
+        <img [src]="user.avatar_url" width="50" height="50">
+    </td>
+    <td>
+        <a [href]="user.html_url" target="_blank"> 
+            <img class="img-icons" src="/assets/github-icon.png" alt="github-icon"> 
+        </a>
+    </td>
+    <td>
+        <a [href]="user.html_url + '?tab=repositories'" target="_blank"> 
+            <img class="img-icons" src="/assets/repo-icon.png" alt="github-icon"> 
+        </a>
+    </td>
+    <td>
+        {{user.type}}
+    </td>
+  </tr>
+</table>
