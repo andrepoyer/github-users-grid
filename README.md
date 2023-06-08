@@ -1,5 +1,3 @@
-Certainly! Here's a comprehensive documentation for your Angular project:
-
 # Angular GitHub Users Grid
 
 This Angular project displays a grid of users fetched from the GitHub API. The grid can be filtered using three different inputs.
